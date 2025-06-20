@@ -1,0 +1,418 @@
+/* ============================================= */
+/* RESET E ESTILOS GERAIS */
+/* ============================================= */
+
+/* Reset básico para remover margens e paddings padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Faz com que padding não some à largura */
+}
+
+/* Estilos gerais do corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #006400; /* Fundo Verde escuro */
+    color: #eee; /* Texto claro para contraste */
+    line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+/* ============================================= */
+/* MENU RESPONSIVO
+/* ============================================= */
+
+/* Esconde o checkbox que controla o menu mobile */
+#bt_menu {
+    display: none;
+}
+
+/* Estilo do botão do menu hamburguer (aparece em mobile) */
+label[for="bt_menu"] {
+    display: none; /* Inicialmente escondido */
+    padding: 10px;
+    background-color: #000; /* Preto puro */
+    color: white;
+    font-size: 24px;
+    cursor: pointer; /* Cursor de clique */
+    text-align: center;
+}
+
+/* Container principal do menu */
+.menu {
+    background-color: #000; /* Preto puro */
+    width: 100%;
+}
+
+/* Lista não ordenada do menu */
+.menu ul {
+    list-style: none; /* Remove marcadores de lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Layout flexível */
+}
+
+/* Itens do menu principal */
+.menu > ul > li {
+    position: relative; /* Permite posicionamento absoluto nos submenus */
+}
+
+/* Links do menu principal */
+.menu > ul > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s; /* Transição suave */
+}
+
+/* Efeito hover nos links do menu */
+.menu > ul > li > a:hover {
+    background-color: #222; /* Preto mais claro */
+}
+
+/* Submenus (dropdown) */
+.menu ul ul {
+    display: none; /* Escondido por padrão */
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do item pai */
+    left: 0;
+    background-color: #222; /* Preto mais claro */
+    min-width: 200px;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Itens dos submenus */
+.menu ul ul li {
+    border-bottom: 1px solid #333; /* Divisória sutil */
+}
+
+/* Links dos submenus */
+.menu ul ul li a {
+    padding: 12px 20px;
+    color: white;
+    display: block;
+}
+
+/* Mostra submenu quando o item pai recebe hover */
+.menu > ul > li:hover > ul {
+    display: block;
+}
+
+/* ============================================= */
+/* CONTEÚDO PRINCIPAL */
+/* ============================================= */
+
+/* Container do conteúdo principal */
+.content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #222; /* Fundo preto */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra mais escura */
+}
+
+/* Título principal */
+.content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff; /* Branco puro */
+    padding-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra de texto */
+}
+
+/* ============================================= */
+/* CONTAINER DOS PRODUTOS */
+/* ============================================= */
+
+/* Grid container para os produtos */
+.boxes-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 20px; /* Espaço entre os itens */
+    width: 100%;
+    padding: 20px;
+}
+
+/* ============================================= */
+/* ESTILO DOS PRODUTOS */
+/* ============================================= */
+
+/* Card de produto individual */
+.product-box {
+    background: #333; /* Cinza escuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra escura */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animações suaves */
+    border: 1px solid #444; /* Borda sutil */
+}
+
+/* Efeito hover no card */
+.product-box:hover {
+    transform: translateY(-5px); /* Levanta levemente */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+}
+
+/* Imagem do produto */
+.product-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Mantém proporção cobrindo o espaço */
+    border-bottom: 1px solid #444; /* Divisória */
+}
+
+/* Título do produto */
+.product-box h3 {
+    padding: 15px 15px 5px;
+    color: #fff; /* Branco */
+    font-size: 1.2rem;
+}
+
+/* Descrição do produto */
+.product-box p {
+    padding: 0 15px;
+    color: #ccc; /* Cinza claro */
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    min-height: 60px; /* Altura mínima para uniformidade */
+}
+
+/* Preço do produto */
+.price {
+    display: block;
+    padding: 0 15px 15px;
+    color: #fff; /* Branco */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ============================================= */
+/* RESPONSIVIDADE */
+/* ============================================= */
+
+/* Telas até 1024px (notebooks menores) */
+@media (max-width: 1024px) {
+    .boxes-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    }
+}
+
+/* Telas até 768px (tablets) */
+@media (max-width: 768px) {
+    /* Mostra o botão do menu mobile */
+    label[for="bt_menu"] {
+        display: block;
+    }
+    
+    /* Altera o menu para versão mobile */
+    .menu ul {
+        display: none;
+        flex-direction: column;
+    }
+    
+    /* Mostra o menu quando o checkbox está marcado */
+    #bt_menu:checked ~ .menu ul {
+        display: flex;
+    }
+    
+    /* Ajusta submenus para mobile */
+    .menu ul ul {
+        position: static;
+        width: 100%;
+    }
+
+    /* 2 colunas para tablets */
+    .boxes-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Telas até 480px (celulares) */
+@media (max-width: 480px) {
+    .boxes-container {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+    
+    /* Aumenta altura da imagem em mobile */
+    .product-box img {
+        height: 220px;
+    }
+}
+
+/* ============================================= */
+/* SLIDER DE PRODUTOS DIGITAIS */
+/* ============================================= */
+
+.digital-products {
+    background-color: #111;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.digital-products h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 40px;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px 0;
+    scrollbar-width: none; /* Firefox */
+}
+
+.slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.slide {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.slide:hover {
+    transform: translateY(-5px);
+}
+
+.slide img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #444;
+}
+
+.slide h3 {
+    padding: 15px 15px 5px;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.slide p {
+    padding: 0 15px;
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    min-height: 60px;
+}
+
+.slide .price {
+    display: block;
+    padding: 0 15px 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.slider-arrow:hover {
+    background: rgba(0,0,0,0.9);
+}
+
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+/* ============================================= */
+/* SLIDER DE PRODUTOS DIGITAIS - CORREÇÕES */
+/* ============================================= */
+
+.digital-products {
+    background-color: #111;
+    padding: 40px 0;
+    margin-top: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 50px;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px 10px;
+    scrollbar-width: none;
+}
+
+.slide {
+    flex: 0 0 calc(25% - 15px); /* 4 slides visíveis por vez */
+    scroll-snap-align: start;
+    background: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    min-width: 280px; /* Largura mínima para cada slide */
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 1200px) {
+    .slide {
+        flex: 0 0 calc(33.333% - 15px); /* 3 slides */
+    }
+}
+
+@media (max-width: 900px) {
+    .slide {
+        flex: 0 0 calc(50% - 15px); /* 2 slides */
+    }
+}
+
+@media (max-width: 600px) {
+    .slide {
+        flex: 0 0 calc(100% - 15px); /* 1 slide */
+    }
+    .slider-container {
+        padding: 0 30px;
+    }
+}
+
+/* Mantenha o restante do CSS do slider que já estava definido */
