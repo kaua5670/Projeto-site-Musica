@@ -12,9 +12,9 @@
 /* Estilos gerais do corpo da página */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #006400; /* Fundo Verde escuro */
-    color: #eee; /* Texto claro para contraste */
-    line-height: 1.6; /* Espaçamento entre linhas */
+    background-color: #483D8B; /* Fundo Verde escuro */
+    color:  #836FFF; /* Texto claro para contraste */
+    line-height: 1.0; /* Espaçamento entre linhas */
 }
 
 /* ============================================= */
@@ -41,6 +41,7 @@ label[for="bt_menu"] {
 .menu {
     background-color: #000; /* Preto puro */
     width: 100%;
+    line-height: 500%;
 }
 
 /* Lista não ordenada do menu */
